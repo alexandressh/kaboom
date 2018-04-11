@@ -1,0 +1,18 @@
+.basket-component {
+  .basket {
+    width: 6em;
+    height: 7em;
+  }
+
+  .basket {
+    &-one {
+      background: red;
+    }
+    &-two {
+      background: yellow;
+    }
+    &-three {
+      background: orange;
+    }
+  }
+}

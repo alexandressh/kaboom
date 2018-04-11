@@ -1,0 +1,29 @@
+.app-component {
+  width: 100%;
+  height: 100%;
+
+  .wrapper {
+    height: 100%;
+  }
+
+  .bomb-section,
+  .basket-section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .bomb-section {
+    height: 80%;
+    width: 100%;
+  }
+  .basket-section {
+    height: 20%;
+    width: 100%;
+    justify-content: space-around;
+
+
+    .bomb-dropped {
+      display: none;
+    }
+  }
+}

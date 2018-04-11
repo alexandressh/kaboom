@@ -1,0 +1,19 @@
+.bomb-component {
+  .bomb {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+  }
+
+  .bomb-type {
+    &-one {
+      background: red;
+    }
+    &-two {
+      background: yellow;
+    }
+    &-three {
+      background: orange;
+    }
+  }
+}
