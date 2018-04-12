@@ -1,18 +1,20 @@
+@import '../../../variables';
+
 .basket-component {
   .basket {
     width: 6em;
     height: 7em;
   }
 
-  .basket {
-    &-one {
-      background: red;
-    }
-    &-two {
-      background: yellow;
-    }
-    &-three {
-      background: orange;
-    }
+  :host-context(.basket-one) .basket {
+    background-color: $element-type-one-color;
+  }
+
+  :host-context(.basket-two) .basket {
+    background-color: $element-type-two-color;
+  }
+
+  :host-context(.basket-three) .basket {
+    background-color: $element-type-three-color;
   }
 }

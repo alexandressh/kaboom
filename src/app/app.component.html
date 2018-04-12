@@ -1,20 +1,16 @@
 <div class="app-component parent">
+  <h2 class="score">Score: {{points}}</h2>
   <div class="wrapper">
     <div class='bomb-section container' [dragula]='"bomb-bag"' [dragulaModel]='bombs'>
       <div *ngFor="let bomb of bombs" class="{{bomb}}">
-        <app-bomb [bombType]="bomb"></app-bomb>
+        <app-bomb (bombExploded)="destroyBomb($event, bomb)"></app-bomb>
       </div>
     </div>
     <div class='basket-section container'>
-      <div class="basket-one" [dragula]='"bomb-bag"' [dragulaModel]="basketOne">
-        <app-basket [basketType]="'basket-one'"></app-basket>
-      </div>
-      <div class="basket-two" [dragula]='"bomb-bag"' [dragulaModel]="basketTwo">
-        <app-basket [basketType]="'basket-two'"></app-basket>
-      </div>
-      <div class="basket-three" [dragula]='"bomb-bag"' [dragulaModel]="basketThree">
-        <app-basket [basketType]="'basket-three'"></app-basket>
-      </div>
+        <div *ngFor="let basket of basketCollection" [ngClass]="basket.name" [dragula]='"bomb-bag"' [dragulaModel]="basket.model">
+          <app-basket></app-basket>
+        </div>
     </div>
   </div>
+  <h2 class="timer">{{timeToShuffle}}</h2>
 </div>

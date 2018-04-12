@@ -1,23 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
+
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   public bombs = ['bomb-type-one', 'bomb-type-one', 'bomb-type-three', 'bomb-type-two'];
-  public basketOne = [];
-  public basketTwo = [];
-  public basketThree = [];
+  public basketCollection = [{
+    name: 'basket-one',
+    model: []
+  }, {
+    name: 'basket-two',
+    model: []
+  }, {
+    name: 'basket-three',
+    model: []
+  }];
+  public points = 0;
+  public timeToShuffle = 40;
+  private intervalId;
 
   constructor(
     private dragulaService: DragulaService
   ) {}
 
   ngOnInit() {
+    this.startShuffleTimer();
+    this.basketCollection = _.shuffle(this.basketCollection);
+
     const bombDrake = this.dragulaService.setOptions('bomb-bag', {
       accepts: (el, target, source, sibling) => {
         const isTypeOne = target.classList.contains('basket-one') && el.classList.contains('bomb-type-one');
@@ -47,11 +62,17 @@ export class AppComponent implements OnInit {
     // });
 
     this.dragulaService.dropModel.subscribe((value) => {
-      console.log('DROP MODEL', this.bombs, this.basketOne, this.basketTwo, this.basketThree);
+      this.points += 1;
+      this.basketCollection = _.shuffle(this.basketCollection);
     });
     this.dragulaService.removeModel.subscribe((value) => {
-      console.log('REMOVE MODEL', this.bombs, this.basketOne, this.basketTwo, this.basketThree);
+      console.log('REMOVE MODEL');
     });
+  }
+
+  ngOnDestroy() {
+    // tslint:disable-next-line:no-unused-expression
+    this.intervalId && clearInterval(this.intervalId);
   }
 
   private addDroppedClass(args) {
@@ -61,5 +82,20 @@ export class AppComponent implements OnInit {
 
   private addClass(el: any, name: string) {
       el.className = el.className ? [el.className, name].join(' ') : name;
+  }
+
+  private startShuffleTimer() {
+    this.intervalId = setInterval(() => {
+      this.timeToShuffle -= 1;
+      if (this.timeToShuffle <= 0) {
+        this.basketCollection = _.shuffle(this.basketCollection);
+        this.timeToShuffle = 40;
+      }
+    }, 1000);
+  }
+
+  destroyBomb(evt, bomb) {
+    this.bombs.splice(this.bombs.indexOf(bomb), 1);
+    this.points -= 1;
   }
 }

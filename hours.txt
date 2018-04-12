@@ -1,3 +1,7 @@
-10/04
+10/04 - 3 hours
    Started 20:00 - Initial structure
    Finished 23:30 - Commited basic structure and working POC
+11/04 - 2 hours
+   Started 19:40 - Added timing, score, random positioning (bins and bombs)
+   Finished 21:40 -
+   TODO: When bomb is placed in wrong bin, score should be decreased
