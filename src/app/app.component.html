@@ -2,15 +2,16 @@
   <h2 class="score">Score: {{points}}</h2>
   <div class="wrapper">
     <div class='bomb-section container' [dragula]='"bomb-bag"' [dragulaModel]='bombs'>
-      <div *ngFor="let bomb of bombs" class="{{bomb}}">
-        <app-bomb (bombExploded)="destroyBomb($event, bomb)"></app-bomb>
+      <div *ngFor="let bomb of bombs" [ngClass]="bomb.type">
+          <app-bomb (bombExploded)="destroyBomb($event, bomb)"></app-bomb>
       </div>
     </div>
     <div class='basket-section container'>
-        <div *ngFor="let basket of basketCollection" [ngClass]="basket.name" [dragula]='"bomb-bag"' [dragulaModel]="basket.model">
+        <div *ngFor="let basket of basketCollection" [ngClass]="basket.type" [dragula]='"bomb-bag"' [dragulaModel]="basket.model">
           <app-basket></app-basket>
         </div>
     </div>
   </div>
-  <h2 class="timer">{{timeToShuffle}}</h2>
+  <h2 class="timer">{{timeUntilShuffle()}}</h2>
 </div>
+

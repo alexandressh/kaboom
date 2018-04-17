@@ -6,15 +6,15 @@
     height: 7em;
   }
 
-  :host-context(.basket-one) .basket {
+  :host-context(.js-type-one) .basket {
     background-color: $element-type-one-color;
   }
 
-  :host-context(.basket-two) .basket {
+  :host-context(.js-type-two) .basket {
     background-color: $element-type-two-color;
   }
 
-  :host-context(.basket-three) .basket {
+  :host-context(.js-type-three) .basket {
     background-color: $element-type-three-color;
   }
 }

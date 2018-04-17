@@ -1,6 +1,9 @@
 @import '../../../variables';
 
 .bomb-component {
+  &.hidden {
+    display: none;
+  }
   .lifetime {
     float: right;
     background: yellow;
@@ -14,15 +17,15 @@
     border-radius: 50%;
   }
 
-  :host-context(.bomb-type-one) .bomb {
+  :host-context(.js-type-one) .bomb {
     background-color: $element-type-one-color;
   }
 
-  :host-context(.bomb-type-two) .bomb {
+  :host-context(.js-type-two) .bomb {
     background-color: $element-type-two-color;
   }
 
-  :host-context(.bomb-type-three) .bomb {
+  :host-context(.js-type-three) .bomb {
     background-color: $element-type-three-color;
   }
 }

@@ -10,6 +10,7 @@ export class BombComponent implements OnInit {
   @Output() bombExploded = new EventEmitter<boolean>();
 
   lifetime: number;
+  isExploded: boolean;
 
   constructor(
     private utilsService: UtilsService
@@ -21,7 +22,9 @@ export class BombComponent implements OnInit {
     const intervalId = setInterval(() => {
       this.lifetime -= 1;
       if (this.lifetime <= 0) {
-        this.bombExploded.emit(null);
+        this.isExploded = true;
+        this.bombExploded.emit(this.isExploded);
+
         clearInterval(intervalId);
       }
     }, 1000);

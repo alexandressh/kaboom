@@ -1,7 +1,22 @@
-10/04 - 3 hours
-   Started 20:00 - Initial structure
-   Finished 23:30 - Commited basic structure and working POC
-11/04 - 2 hours
-   Started 19:40 - Added timing, score, random positioning (bins and bombs)
-   Finished 21:40 -
+10/04 - 3 hours (17 Left)
+   Started 20:00 - Finished 23:30
+   Initial structure (folder and organization)
+   Took some time wrapping my head aroung Dragula
+   Commited basic structure and working POC
+
+11/04 - 2 hours (15 Left)
+   Started 19:40 - Finished 21:40
+   Added timing, score, random positioning (bins and bombs)
    TODO: When bomb is placed in wrong bin, score should be decreased
+
+15/04 - 45 minutes (16:15 Left)
+  Started 12:30 - Finished 13:15
+
+16/04 - 02:45 min (13:30 Left)
+  Started 18:15 - Finished 21:00
+  Started spawning bombs according to time left (took a while to come up with formula)
+  Some bugs appeared, investigated and fixed some of them - further testing needed.
+
+17/04
+  Started 18:15 - Finished
+
