@@ -17,6 +17,12 @@
   Started spawning bombs according to time left (took a while to come up with formula)
   Some bugs appeared, investigated and fixed some of them - further testing needed.
 
-17/04
-  Started 18:15 - Finished
+17/04 - 03:30 min (10:00 Left)
+  Started 18:15 - Finished 21:45
+
+  Spent most of the time trying to fix a bug caused by Dragula lib,
+  Ended up creating a new branch and using a different library to do DnD
+  Ng2-DnD solved the issue pretty quickly, some code change was needed, but not too much
+  TODO: Increase bin size when bomb is dropped
+
 
