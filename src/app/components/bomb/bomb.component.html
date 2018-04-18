@@ -1,4 +1,9 @@
-<div class="bomb-component" appRandomPosition [class.hidden]="isExploded">
+<div class="bomb-component"
+      appRandomPosition
+      [class.hidden]="isExploded"
+      dnd-draggable
+      [dragData]="bomb"
+      [dragEnabled]="true">
   <span class="lifetime">{{lifetime}}</span>
   <div class="bomb"></div>
 </div>

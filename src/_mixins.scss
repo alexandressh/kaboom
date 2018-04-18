@@ -1,0 +1,8 @@
+@mixin assembleBasket($element-color) {
+  background-color: $element-color;
+
+    &.correct-bin {
+      transform: scale(1.05);
+      background: darken($element-color, 15%);
+    }
+}
