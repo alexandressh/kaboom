@@ -11,7 +11,7 @@
           <app-basket [basket]="basket" (bombCollected)="onBombCollected($event)"></app-basket>
         </div>
     </div>
+    <h4 class="timer">Next change in: {{timeUntilShuffle()}}s</h4>
   </div>
-  <h2 class="timer">{{timeUntilShuffle()}}</h2>
 </div>
 

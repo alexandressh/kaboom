@@ -11,6 +11,8 @@ export class BasketComponent implements OnInit {
   @Input() basket: Basket;
   @Output() bombCollected = new EventEmitter<any>();
 
+  isCorrectBin = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -24,6 +26,18 @@ export class BasketComponent implements OnInit {
       bomb: bomb,
       isSameType: isSameType
     });
+
+  this.removeCorrectFlag();
+
+  }
+
+  checkIfCompatible(evt) {
+    const bomb: Bomb = evt.dragData;
+    this.isCorrectBin = bomb.type === this.basket.type;
+  }
+
+  removeCorrectFlag() {
+    this.isCorrectBin = false;
   }
 
 }

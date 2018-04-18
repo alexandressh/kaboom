@@ -2,5 +2,8 @@
   <div class="basket"
        dnd-droppable
        (onDropSuccess)="bombDropped($event)"
-       [ngClass]="basketType"></div>
+       (onDragEnter)="checkIfCompatible($event)"
+       (onDragLeave)="removeCorrectFlag()"
+       (onDragOver)="checkIfCompatible($event)"
+       [ngClass]="{'correct-bin': isCorrectBin}"></div>
 </div>

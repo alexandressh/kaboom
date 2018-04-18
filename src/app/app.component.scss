@@ -1,6 +1,7 @@
 .app-component {
   width: 100%;
   height: 100%;
+  user-select: none;
 
   .score {
     position: absolute;
@@ -8,13 +9,15 @@
   }
 
   .timer {
-    position: absolute;
-    right: 1em;
-    bottom: 1em;
+    width: 20%;
+    align-self: flex-end;
+    margin-top: 0;
   }
 
   .wrapper {
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .bomb-section,
@@ -24,18 +27,13 @@
   }
 
   .bomb-section {
-    height: 80%;
+    height: 75%;
     width: 100%;
     position: relative;
   }
   .basket-section {
-    height: 20%;
+    height: 25%;
     width: 100%;
     justify-content: space-around;
-
-
-    .bomb-dropped {
-      display: none;
-    }
   }
 }

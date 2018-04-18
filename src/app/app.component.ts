@@ -77,8 +77,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private startShuffleTimer() {
     this.intervalId = setInterval(() => {
       if (this.timeUntilShuffle() <= 1) {
-
         const shuffled = _.shuffle(this.basketCollection).map(basket => basket.type);
+
         this.basketCollection[0].type = shuffled[0];
         this.basketCollection[1].type = shuffled[1];
         this.basketCollection[2].type = shuffled[2];
@@ -90,16 +90,15 @@ export class AppComponent implements OnInit, OnDestroy {
   private startSpawingBombs() {
     this.createNewBomb(100);
 
-    this.subject.subscribe(
-      (bomb: Bomb) => {
-        this.bombs.push(bomb);
-        if (this.maxBombs > 1) {
-          this.maxBombs -= 1;
-          this.createNewBomb();
-        }
-      });
+    this.subject.subscribe((bomb: Bomb) => {
+      this.bombs.push(bomb);
 
-    }
+      if (this.maxBombs > 1) {
+        this.maxBombs -= 1;
+        this.createNewBomb();
+      }
+    });
+  }
 
   private createNewBomb(time?: number): void {
     const timeToSpawn = time || this.spawningTimer();

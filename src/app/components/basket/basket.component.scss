@@ -1,4 +1,5 @@
 @import '../../../variables';
+@import '../../../mixins';
 
 .basket-component {
   .basket {
@@ -7,14 +8,14 @@
   }
 
   :host-context(.js-type-one) .basket {
-    background-color: $element-type-one-color;
+    @include assembleBasket($element-type-one-color);
   }
 
   :host-context(.js-type-two) .basket {
-    background-color: $element-type-two-color;
+    @include assembleBasket($element-type-two-color);
   }
 
   :host-context(.js-type-three) .basket {
-    background-color: $element-type-three-color;
+    @include assembleBasket($element-type-three-color);
   }
 }

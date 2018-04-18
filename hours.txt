@@ -25,4 +25,8 @@
   Ng2-DnD solved the issue pretty quickly, some code change was needed, but not too much
   TODO: Increase bin size when bomb is dropped
 
+18/04 -
+  Started 19:20 - Finished
+
+
 
