@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "c9": "ng serve -p 8080 -H 0.0.0.0 --public-host kaboom-alexandressh.c9users.io",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
