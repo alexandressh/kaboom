@@ -28,7 +28,6 @@ export class BasketComponent implements OnInit {
     });
 
   this.removeCorrectFlag();
-
   }
 
   checkIfCompatible(evt) {

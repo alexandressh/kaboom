@@ -10,6 +10,9 @@ export class UtilsService {
   }
 
   getRandomIntMinAndMax(min, max) {
+    if (min > max) {
+      return 0;
+    }
     return this.getRandomInt(max - min) + min;
   }
 
