@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public bombs: Array<Bomb> = [];
   public basketCollection: Array<Basket>;
   public points = 0;
+  public personalBest = "";
 
   private intervalId;
   private maxBombs = 120;
@@ -30,12 +31,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.basketCollection = TYPE_OF_OBJECTS.map(type => ({
-      id: (new Date()).getMilliseconds(),
-      type: type,
-      model: []
-    }));
-
+    this.basketCollection = this.getBasketCollection();
+    this.getPersonalBest();
     this.startShuffleTimer();
     this.startSpawingBombs();
   }
@@ -44,6 +41,14 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // tslint:disable-next-line:no-unused-expression
     this.intervalId && clearInterval(this.intervalId);
+  }
+
+  getBasketCollection(): Array<Basket> {
+    return TYPE_OF_OBJECTS.map(type => ({
+      id: (new Date()).getMilliseconds(),
+      type: type,
+      model: []
+    }));
   }
 
   destroyBomb(evt, bomb: Bomb) {
@@ -74,6 +79,11 @@ export class AppComponent implements OnInit, OnDestroy {
     return SHUFFLE_BASKETS - (this.timeElapsed % SHUFFLE_BASKETS);
   }
 
+  private getPersonalBest() {
+    const bestScoreLocal = window.localStorage.getItem('personalBest');
+    this.personalBest =  bestScoreLocal || this.personalBest;
+  }
+
   private startShuffleTimer() {
     this.intervalId = setInterval(() => {
       if (this.timeUntilShuffle() <= 1) {
@@ -96,8 +106,17 @@ export class AppComponent implements OnInit, OnDestroy {
       if (this.maxBombs > 1) {
         this.maxBombs -= 1;
         this.createNewBomb();
+      } else {
+        this.saveNewRecord();
       }
     });
+  }
+
+  private saveNewRecord() {
+    if (this.points > parseInt(this.personalBest, 10)) {
+      window.localStorage.setItem('personalBest', this.points.toString());
+      this.personalBest = this.points.toString();
+    }
   }
 
   private createNewBomb(time?: number): void {

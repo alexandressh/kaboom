@@ -1,31 +1,72 @@
-@import '../../../variables';
+@import "../../../variables";
 
 .bomb-component {
+  width: 5em;
+  height: 5em;
+
   &.hidden {
     display: none;
   }
   .lifetime {
-    float: right;
+    position: absolute;
+    right: 0;
     background: yellow;
+    z-index: 10000;
     width: 2em;
     text-align: center;
     border-radius: 45%;
   }
   .bomb {
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: rotate(-20deg);
+
+    .cap {
+      width: 20%;
+      height: 10%;
+      right: 50%;
+      top: -9%;
+      margin-right: -10%;
+      position: absolute;
+    }
+    .body {
+      margin: 0 auto;
+      margin-top: 10%;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .reflection {
+      width: 80%;
+      height: 80%;
+      border-right: 5px solid white;
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      border-radius: 50%;
+    }
   }
 
-  :host-context(.js-type-one) .bomb {
-    background-color: $element-type-one-color;
+  :host-context(.js-type-one) {
+    .body,
+    .cap {
+      background-color: $element-type-one-color;
+    }
   }
 
-  :host-context(.js-type-two) .bomb {
-    background-color: $element-type-two-color;
+  :host-context(.js-type-two) {
+    .body,
+    .cap {
+      background-color: $element-type-two-color;
+    }
   }
 
-  :host-context(.js-type-three) .bomb {
-    background-color: $element-type-three-color;
+  :host-context(.js-type-three) {
+    .body,
+    .cap {
+      background-color: $element-type-three-color;
+    }
   }
 }
