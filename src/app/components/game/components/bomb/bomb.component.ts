@@ -1,6 +1,6 @@
-import { UtilsService } from './../../services/utils.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Bomb } from './bomb.model';
+import { UtilsService } from '../../../../services/utils.service';
 
 @Component({
   selector: 'app-bomb',

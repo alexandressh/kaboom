@@ -1,5 +1,5 @@
 import { Directive, ElementRef } from '@angular/core';
-import { UtilsService } from '../services/utils.service';
+import { UtilsService } from '../../../services/utils.service';
 
 @Directive({
   selector: '[appRandomPosition]'

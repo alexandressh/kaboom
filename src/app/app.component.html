@@ -1,21 +1,3 @@
-<div class="app-component parent">
-  <div class="score-holder">
-    <span class="score">Score: {{points}}</span>
-    <span class="score h5">KABOOM!</span>
-    <span class="score">Personal best: {{personalBest}}</span>
-  </div>
-
-  <div class="wrapper">
-    <div class='bomb-section'>
-      <div *ngFor="let bomb of bombs" [ngClass]="bomb.type">
-          <app-bomb [bomb]="bomb" (bombExploded)="destroyBomb($event, bomb)"></app-bomb>
-      </div>
-    </div>
-    <div class='basket-section'>
-        <div *ngFor="let basket of basketCollection" [ngClass]="basket.type" >
-          <app-basket [basket]="basket" (bombCollected)="onBombCollected($event)"></app-basket>
-        </div>
-    </div>
-    <h4 class="timer">Next change in: {{timeUntilShuffle()}}s</h4>
-  </div>
+<div class="app-component h-100">
+  <router-outlet></router-outlet>
 </div>

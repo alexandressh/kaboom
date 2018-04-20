@@ -36,4 +36,16 @@
   TODO: Enhance look and feel
   TODO: Record highest score over local storage
 
+19/04 - 02:30 (04:30 Left)
+  Started 19:40 - Finished 21:40
+  Have also worked for ~30min throughout the day
+
+  Added bootsrap
+  Refactored code
+  Made a little CSS bomb
+  Created presentation page and tried to enhance general look and feel
+  Recorded highest score
+  App is also available on OpenShift: http://kaboom-kaboom.a3c1.starter-us-west-1.openshiftapps.com/_
+
+  TODO: Finish Unit Tests
 

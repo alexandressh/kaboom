@@ -1,4 +1,3 @@
-import { UtilsService } from './../services/utils.service';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RandomPositionDirective } from './random-position.directive';
 import { Component, DebugElement, style } from '@angular/core';
