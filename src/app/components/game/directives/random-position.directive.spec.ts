@@ -1,7 +1,9 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { RandomPositionDirective } from './random-position.directive';
 import { Component, DebugElement, style } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
+import { RandomPositionDirective } from './random-position.directive';
+import { UtilsService } from './../../../services/utils.service';
 
 describe('RandomPositionDirective', () => {
   let fixture: ComponentFixture<TestComponent>;

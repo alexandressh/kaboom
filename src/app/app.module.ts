@@ -7,14 +7,12 @@ import { DndModule } from 'ng2-dnd';
 import { AppComponent } from './app.component';
 import { UtilsService } from './services/utils.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { FinishedComponent } from './components/finished/finished.component';
 import { GameModule } from './components/game/game.module';
 import { GameComponent } from './components/game/game.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'game', component: GameComponent },
-  { path: 'finished', component: FinishedComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome' }
 ];
@@ -22,8 +20,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    FinishedComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

@@ -49,3 +49,14 @@
 
   TODO: Finish Unit Tests
 
+20/04 - 01:00 (3:30 Left)
+  Done throughout the day
+
+  Refactored code
+  Deployed version to OpenShift
+  Unit Tests
+
+21/04 - 03:00
+  Started 10:30 - Finished 13:30
+
+  Unit Tests

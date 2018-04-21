@@ -55,6 +55,7 @@ export class GameComponent implements OnInit, OnDestroy {
     const index = this.bombs.indexOf(bomb);
     this.bombs.splice(index, 1);
     this.points -= 1;
+    this.checkEndOfGame();
   }
 
   onBombCollected(evt) {
@@ -73,10 +74,18 @@ export class GameComponent implements OnInit, OnDestroy {
     } else {
       this.points -= 1;
     }
+
+    this.checkEndOfGame();
   }
 
   timeUntilShuffle() {
     return SHUFFLE_BASKETS - (this.timeElapsed % SHUFFLE_BASKETS);
+  }
+
+  private checkEndOfGame() {
+    if (this.bombs.length <= 0 && this.maxBombs <= 1) {
+      this.saveNewRecord();
+    }
   }
 
   private getPersonalBest() {
@@ -106,14 +115,13 @@ export class GameComponent implements OnInit, OnDestroy {
       if (this.maxBombs > 1) {
         this.maxBombs -= 1;
         this.createNewBomb();
-      } else {
-        this.saveNewRecord();
       }
     });
   }
 
   private saveNewRecord() {
-    if (this.points > parseInt(this.personalBest, 10)) {
+    const bestScoreLocal =  window.localStorage.getItem('personalBest');
+    if (!bestScoreLocal || this.points > parseInt(this.personalBest, 10)) {
       window.localStorage.setItem('personalBest', this.points.toString());
       this.personalBest = this.points.toString();
     }

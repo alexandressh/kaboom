@@ -1,8 +1,8 @@
-import { UtilsService } from './../../services/utils.service';
 import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { BombComponent } from './bomb.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { UtilsService } from '../../../../services/utils.service';
 
 import * as _ from 'lodash';
 
